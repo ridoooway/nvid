@@ -5,7 +5,20 @@ const sanitizeName = require('sanitize-filename');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
 const app = express();
+
+// Create necessary directories if they don't exist
+const publicDir = path.join(__dirname, 'public');
+const cssDir = path.join(publicDir, 'css');
+const viewsDir = path.join(__dirname, 'views');
+
+// Ensure directories exist
+[publicDir, cssDir, viewsDir].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+});
 
 // Add this near the top of your file
 process.env.YTDL_NO_UPDATE = 'true';

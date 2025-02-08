@@ -44,3 +44,10 @@ html {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
+
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}

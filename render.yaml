@@ -2,11 +2,18 @@ services:
   - type: web
     name: youtube-downloader
     env: node
-    buildCommand: npm install && npm run build:css
+    buildCommand: |
+      npm install
+      mkdir -p public/css
+      npm run build:css
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: "3000"
+      - key: YTDL_NO_UPDATE
+        value: "true"
     plan: free
     healthCheckPath: /
     autoDeploy: true 
