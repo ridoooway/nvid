@@ -1,0 +1,35 @@
+# Global rules
+User-agent: *
+Allow: /
+Allow: /download
+Allow: /api/*
+Allow: /faq
+Allow: /privacy
+Allow: /terms
+Allow: /contact
+
+# Protect sensitive areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backend/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Crawl-delay for better server performance
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://shortsdownloader.online/sitemap.xml
+
+# Block specific bots (optional)
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+Disallow: /
+
+# Rate limiting hints
+User-agent: GPTBot
+Crawl-delay: 20 

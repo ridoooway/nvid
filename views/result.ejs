@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Results - YTSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-base-100">
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 border-b border-base-200">
+        <div class="container mx-auto px-4">
+            <div class="flex-1">
+                <a href="/" class="btn btn-ghost normal-case text-xl gap-2">
+                    <svg class="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span class="font-bold">YTSave</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+            <% if (result.video) { %>
+                <!-- Video Download Card -->
+                <div class="card bg-base-100 shadow-xl mb-8">
+                    <div class="card-body">
+                        <div class="flex gap-6">
+                            <img src="<%= result.video.thumbnail %>" alt="Video Thumbnail" class="w-48 h-28 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h2 class="card-title mb-2"><%= result.video.title %></h2>
+                                <p class="text-base-content/70 mb-4">
+                                    Duration: <%= result.video.duration %> • 
+                                    By: <%= result.video.author %>
+                                </p>
+                                <a 
+                                    href="<%= result.video.url %>" 
+                                    class="btn btn-primary"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Download Video
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+            <% if (result.audio) { %>
+                <!-- Audio Download Card -->
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex gap-6">
+                            <img src="<%= result.audio.thumbnail %>" alt="Audio Thumbnail" class="w-48 h-28 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h2 class="card-title mb-2"><%= result.audio.title %></h2>
+                                <p class="text-base-content/70 mb-4">
+                                    Duration: <%= result.audio.duration %> • 
+                                    By: <%= result.audio.author %>
+                                </p>
+                                <a 
+                                    href="<%= result.audio.url %>" 
+                                    class="btn btn-primary"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Download Audio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+            <!-- Return Button -->
+            <div class="text-center mt-8">
+                <a href="/" class="btn btn-outline">
+                    Download Another Video
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-4 bg-base-200 text-base-content">
+        <aside>
+            <p>© 2024 YTSave. All rights reserved.</p>
+        </aside>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom gradient text */
+.gradient-text {
+    background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Smooth theme transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fix dark mode flicker */
+html {
+    visibility: visible;
+    opacity: 1;
+    scroll-behavior: smooth;
+}
+
+/* Improve touch targets */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 3rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .input {
+        min-height: 3rem;
+        font-size: 16px;
+    }
+}
+
+/* Add touch feedback */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Improve focus styles */
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}

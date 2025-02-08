@@ -1,0 +1,15 @@
+# Disable directory listing
+Options -Indexes
+
+# Redirect all requests to your Node.js application
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ http://localhost:3000/ [P,L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
+</IfModule>
+
+# Handle errors
+ErrorDocument 403 /error/403.html
+ErrorDocument 404 /error/404.html 
