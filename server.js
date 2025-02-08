@@ -12,7 +12,7 @@ process.env.YTDL_NO_UPDATE = 'true';
 
 // Set ffmpeg path
 if (process.env.NODE_ENV === 'production') {
-    ffmpeg.setFfmpegPath('/usr/bin/ffmpeg');
+    ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 } else {
     ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 }
